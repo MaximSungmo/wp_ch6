@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// window 객체 확인하기 
+var s='';
+for(var key in window){
+	s +=key + ':' + window[key] + '\n'
+}
+console.log(s);
+
+//새로운 window 객체 생성 
+// YES/NO, 1/0
+// location, menubar, resizable,
+setTimeout(function(){
+	var popup = window.open('popup.html', 'popup', 'width=600, height=400', true);
+	
+	setTimeout(function(){
+		// 자식창의 스크립트도 실행할 수 있다.
+		// 단, 보안 상 cross-domain 문제 때문에 같은 domain에서만 가능하다.
+		//popup.pop(); //popup.html에 var pop=function로 정의한 alert 실행	
+	}, 1000);
+	popup.moveTo(0,0);
+	setInterval(function(){
+		popup.moveBy(10, 10);
+	}, 500);
+},2000);
+
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

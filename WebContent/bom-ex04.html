@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src='browser-detect.js'></script>
+<script>
+//Location 객체 
+var s='';
+for(var key in navigator){
+	s +=key + ':' + window[key] + '\n'
+}
+console.log(s);
+
+Browserdetect.init();
+console.log(Browserdetect.browser);
+console.log(Browserdetect.version);
+console.log(Browserdetect.OS);
+</script>
+</head>
+<body>
+<h1>navigator 객체 </h1>
+
+
+
+</body>
+</html>

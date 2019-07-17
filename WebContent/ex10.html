@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<script>
+
+var now = new Date(); //현재 시간
+console.log(now, typeof now);
+
+// 2019년 7월 5일
+// month = current month -1
+var d = new Date(2019, 6, 5);
+console.log(d);
+
+//2019년 7월 5일 12시 30분 40초 
+var d = new Date(2019, 6, 5, 12, 30, 40);
+
+
+//객체 메서드
+console.log(
+		" 년:" + (d.getYear() + 1900) + "\n"+ 
+		" 월:" + (d.getMonth() + 1) + "\n"+
+		" 일:" + (d.getDay()) + "\n"+
+		" 요일:" + ['일','월','화','수','목','금','토'][d.getDay()] + "\n"+
+		" 시:" + (d.getHours()) + "\n" +
+		" 분:" + (d.getMinutes()) + "\n" +
+		" 초:" + (d.getSeconds()) + "\n" +
+		" 밀리초:" + (d.getMilliseconds()) + "\n" 
+		)
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
+
+	<!--  
+	var displayDate = function(){
+		document.getElementById( "demo" ).innerHTML = Date();
+	}
+	
+	var cleanUp = function(){
+		document.getElementById( "demo" ).innerHTML = "";	
+	}
+	
+	var onLoad = function() {
+		document.getElementById( "myButton" ).onclick = function() {
+			displayDate();
+		}	
+	}
+	<p>click button!!</p>
+	<button id="myButton"
+		onmouseover= "displayDate()"
+		onmouseout= "cleanUp()"
+	>
+	try it
+	</button>
+	<p id="demo"></p>
+ -->

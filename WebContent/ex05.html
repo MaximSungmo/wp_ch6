@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+var o = {
+		name: '마이콜',
+		age:20,
+		hasProperty:function(property){
+			return property in this;
+		}
+}
+
+console.log(o.hasProperty('name'))
+console.log(o.hasProperty('age'))
+console.log(o.hasProperty('email'))
+
+
+console.log(o.hasOwnProperty('name'))
+console.log(o.hasOwnProperty('age'))
+console.log(o.hasOwnProperty('email'))
+
+
+// with 
+var o = {
+		name: '마이콜',
+		age:20,
+		info1:function(){
+			console.log(this.name + ":" +this.age)
+		},
+		info2:function(){
+			with(this){
+				console.log(name + ":" +age)
+			}
+		},
+		info3:function(){
+			var str ='';
+			for (var prop in this){
+				str += (prop+ ":");
+			}
+			console.log(str.substring(0, str.length-1));
+		}
+}
+
+o.info1();
+o.info2();
+o.info3();
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+<!-- 
+/* JSON */
+var foo = {
+	name: "안대혁",
+	nick: "kickscar",
+	aNumber: 5,
+	doFoo: function(){
+		alert( "I'm " + this.name );
+	}
+};
+
+foo.doFoo();
+
+//=====================================================
+
+/* function을 이용한 여러 객체 생성 방법 */
+
+var Foo = function( name, nick ) {
+	this.name = name;
+	this.nick = nick;
+	this.aNumber = 5;
+	this.doFoo = function() {
+		alert( "I'm " + this.name );
+	};
+};
+
+var foo1 = new Foo("안대혁1", "kickscar1");
+foo1.address = "서울시";
+foo1.f = function(){
+}
+
+var foo2 = new Foo("안대혁2", "kickscar2");
+
+foo1.doFoo();
+foo2.doFoo();
+
+foo1.f();
+ -->

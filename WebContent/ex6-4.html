@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+/* JSON */
+var foo = {
+	name: "안대혁",
+	nick: "kickscar",
+	aNumber: 5,
+	doFoo: function(){
+		alert( "I'm " + this.name );
+	}
+};
+
+foo.doFoo();
+
+//=====================================================
+
+/* function을 이용한 여러 객체 생성 방법 */
+
+var Foo = function( name, nick ) {
+	this.name = name;
+	this.nick = nick;
+	this.aNumber = 5;
+	this.doFoo = function() {
+		alert( "I'm " + this.name );
+	};
+};
+
+var foo1 = new Foo("안대혁1", "kickscar1");
+foo1.address = "서울시";
+foo1.f = function(){
+}
+
+var foo2 = new Foo("안대혁2", "kickscar2");
+
+foo1.doFoo();
+foo2.doFoo();
+
+foo1.f();
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

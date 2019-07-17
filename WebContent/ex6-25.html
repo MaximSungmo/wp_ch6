@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function mDown( obj ) {
+  obj.style.backgroundColor="#1ec5e5";
+  obj.innerHTML="버튼을 떼주세요.";
+}
+function mUp( obj ) {
+  obj.style.backgroundColor="#D94A38";
+  obj.innerHTML="클릭하세요!";
+}
+</script>
+
+</head>
+<body>
+<div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+	클릭하세요!
+</div>
+</body>
+</html>

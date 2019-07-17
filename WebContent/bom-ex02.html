@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// screen객체 
+var s='';
+for(var key in screen){
+	s +=key + ':' + window[key] + '\n'
+}
+console.log(s);
+
+//현재 사용되는 환경의 screen 사이즈 구하기
+var width = screen.width;
+var height = screen.height; 
+console.log(width+":"+ height);
+
+
+//var child = window.open('', '', 'width=300, height=450');
+//전체 화면으로 만들기
+//child.moveTo(0, 0)
+//child.resizeTo(width, height);
+//setInterval(function(){
+//	child.resizeBy(-20, -20);
+//	child.moveBy(10, 10)
+//}, 100)
+
+
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

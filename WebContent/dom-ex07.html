@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// document 객체를 사요해서 dom 전체에서 탐색할 필요는 없다.
+// document 객체 대신에 부모 문서 객체로 getElementsByTagName 호출이 가능하다.
+window.onload = function(){
+	var header1 = document.getElementsByTagName('h1');
+	
+	setTimeout(function(){
+		header1[0].innerText = 'header-1 변경'
+	}, 2000);
+	
+}
+
+</script>
+</head>
+<body>
+	<h1> 문서 객체 조작하기 </h1>
+	<h1 id='header-1'>header-1</h1>
+	<h1 id='header-2'>header-2</h1>
+	
+</body>
+</html>

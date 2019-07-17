@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<script>
+
+//함수객체 생성하는 방법1 - 비추
+function f1(a,b){
+	return a+b;
+}
+
+//함수객체 생성하는 방법2 - 비추
+var f2 = Function("a","b","var sum=a+b; return sum;");
+
+//함수객체 생성하는 방법3 - 일반적인 방법
+var f3 = function(a,b){
+	return a+b;
+}
+
+// Anonymous Function
+sum = (function(a,b){
+	return a + b; 
+})(10,20);
+
+console.log(f1(10,20))
+console.log(f2(10,20))
+console.log(f3(10,20))
+
+// 함수 가변으로 사용하기 
+var sum = function(a){
+	//기본적으로 명시된 함수 인자 말고(a=10, b=20)
+	// 2개 더 기본으로 받는 함수 인자 : this, arguments
+	
+	
+	// Arguments는 array가 아니다. 
+	console.log(arguments instanceof Array);
+	
+	var sum = 0;
+	console.log(arguments);
+	//가변 파라미터를 받기 위해서 arguments에 forEach 사용하려 하였으나 동작하지 않으므로 추후 수정 예정
+	//arguments.forEach(function(number){
+	//	sum += number;
+	//});
+    
+    // 가변 파라미터 받아서 forEach해결방법 
+    Array.prototype.forEach.call(arguments, function(n){
+		console.log(n);
+	})
+    
+	for(var i=0; i< arguments.length; i++){
+		sum+= arguments[i];
+	}
+	return sum;
+}
+
+// 가변 함수 파라미터
+console.log(sum(10));
+console.log(sum(10, 20));
+console.log(sum(10, 20, 30, 40, 50));
+
+
+var f = function(arg1, arg2, arg3){
+	console.log(arg1);
+	console.log(arg2);
+	arg3();
+}
+
+// anonymouse parameter 
+f(10, {
+	name:'둘리',
+	age:10,
+}, function(){
+	console.log('hello');
+});
+
+
+// Array()
+// Array 내부코드 간단하게 구현해서 가변 파라미터를 인식하는 방식 알아보기
+Array = function(){
+	for(var i=0; i< arguments.length; i++){
+		this.a[i] = arguments[i]; // size setting
+	}
+}
+
+// anonymouse로 f함수 만들기
+var f = function(){
+	console.log(arguments[0]);
+	console.log(arguments[1]);
+	arguments[2]();
+}
+f(10, {
+	name:'둘리',
+	age:10,
+}, function(){
+	console.log('hello');
+});
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

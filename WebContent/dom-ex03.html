@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/*
+ * 용어정리
+ 1. 태그(Tag)
+ 	HTML 문서 안에서 텍스트나 콘턴츠를 정의할 때 사용하는 마크업 
+ 2. 문서객체(document object)
+ 	DOM(Document Object Model, Tree)이 구성된 다음 노드의 타입
+ 	JS에서 접근하고 조작하는 것 
+ 3. 노드(Node)
+ 	DOM Tree 각각의 요소 
+ */
+
+ // 바닐라스크립트로 새로운 document의 element로 h1을 만듬 
+window.onload = function(){
+
+	var header = document.createElement('h1');
+	var textNode = document.createTextNode('Hello DOM');
+	//header element에 textNode를 추가한 후 body에 child로 header에 대한 정보를 붙임
+	header.append(textNode);
+	document.body.appendChild(header);
+}
+
+</script>
+</head>
+<body>
+	<h1> 문서 객체 만들기 -1 </h1>
+
+
+</body>
+</html>

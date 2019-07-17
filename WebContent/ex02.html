@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<script>
+var myVar1;
+var myVar2 = null;
+
+console.log(myVar1)
+console.log(myVar2)
+
+console.log(myVar1 == myVar2);
+console.log(myVar1 === myVar2);
+
+// ==(equality, 값의 등치성, 형변환)  <> !=
+console.log("2" == 2);
+console.log(true == 1);
+console.log("abc" == new String('abc'));
+
+// 형변환 테스트 
+console.log("2" + 2);
+console.log(2 + "2");
+console.log(true + 101);
+console.log("abc" + new String('abc'));
+
+
+
+/// ===(!==, identity, 객체의 동일성, 형변환x)
+console.log("2" === 2);
+console.log(true === 1);
+console.log("abc" === new String('abc'));
+
+
+// 추천 :
+// == 연산자를 사용할 때는 엄격하게 형변환을 해서 두 피연산자의 타입을 맞춘다.
+str = "5";
+console.log(parseInt(str) == 5);
+
+
+// 변수 범위(Scope)
+// 1. var 사용 여부에 영향을 받는다.
+// 2. 특히 local(함수 내부) 
+var i = 5;
+console.log(i);
+
+var f = function(){
+	var i = 20;
+	console.log(i)
+	i = i -1;
+}
+f();
+console.log(i);
+
+
+// statement
+// js engine이 읽어서 실행하는 단위
+// \n or ;(세미콜론) 단위로 읽어서 실행한다.
+
+
+// 전역(global) 객체
+console.log('--------------------------')
+var s= 'hello world';
+console.log(window.s);
+
+var o = {};
+o.name = '둘리';
+o.age = new Number(10);
+o.age.leap = 9;
+
+console.log(window.o);
+console.log(window.o.name);
+console.log(window.o.age);
+console.log(window.o.age.leap);
+
+
+var o = {};
+o.name = '둘리';
+o.age = {};
+o.age.value = 10;
+o.age.leap = 9;
+
+var o2 = {
+		'name' : '둘리',
+		'age' : {
+			'value' : 10,
+			'leap' : 9
+		}
+}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+<!-- 
+function h(){
+	var v = "...";
+}
+
+h();
+v();
+ -->

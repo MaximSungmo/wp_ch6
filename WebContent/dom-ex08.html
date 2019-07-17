@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = function(){
+	var header1 = document.getElementsByClassName('header');
+	
+	setTimeout(function(){
+		header1[0].innerText = 'header-1 변경'
+	}, 2000);
+	
+}
+
+</script>
+</head>
+<body>
+	<h1> 문서 객체 조작하기 </h1>
+	<h1 class='header'>header-1</h1>
+	<h1 class='header'>header-2</h1>
+	
+</body>
+</html>

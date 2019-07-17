@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+var escaped = escape("<h3>Here's a headline!</h3>");
+//alert( escaped );
+
+var url = "http://mysite.com/?stuff=\"안 대혁!&bar=";
+var encodedURL = encodeURI(url);
+
+alert(encodedURL);
+</script>
+</head>
+<body>
+
+</body>
+</html>

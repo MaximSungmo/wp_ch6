@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div, h2, span {border:3px solid black;}
+</style>
+<script>
+
+window.onload = function(){
+	// event bubbling
+	// ie: outer -> inner -> header -> text 
+	
+	document.getElementById('outer-div').addEventListener('click',function(){
+		console.log('outer-div')
+	})	
+	document.getElementById('inner-div').addEventListener('click',function(e){
+		// cross browser
+		// e == null 인 경우는 IE인 경우이며 다음의 전역객체로 처리(window.event) 
+		var event = e || window.event;
+		
+		// 이벤트 전달 막기 
+		
+		event.cancelBubble = true // IE에서 propagation 막기
+		event.stopPropagation && event.stopPropagation // other browsers
+		
+		console.log('inner-div')
+	})
+	document.getElementById('header').addEventListener('click',function(){
+		console.log('header')
+	})
+	document.getElementById('text').addEventListener('click',function(){
+		console.log('text')
+	})
+
+}
+ 
+</script>
+</head>
+<body>
+	<!-- 뜻하지 않은 곳에서 이벤트가 일어날 수 있으므로 제어 필요 -->
+	<h1>이벤트 propagation(bubbling)</h1>
+	<div id='outer-div'>
+		<div id='inner-div'>
+			<h2 id='header' style="background-color:#f00">
+				<span id='text'>Text</span>
+			</h2>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+
+var number1 = 5;
+console.log(number1 + ':' + typeof(number1));
+
+var number2 = new Number(10);
+console.log(number2 + ':' + typeof(number2));
+
+console.log(number1 + number2);
+
+// 내장타입(number, boolean, string, function, date, array....)
+var n = 10;
+var f = 3.14;
+var b = true;
+var s = 'hello world';
+var fn = function(){};
+var a = []; //array 타입은 없다.
+var o ={};
+
+
+console.log(n + ":" + typeof(n));
+console.log(f + ":" + typeof(f));
+console.log(b + ":" + typeof(b));
+console.log(s + ":" + typeof(s));
+console.log(fn + ":" + typeof(fn));
+console.log(a + ":" + typeof(a));
+console.log(o + ":" + typeof(o));
+
+
+console.log("------------------------------------");
+// new 생성자함수()를 사용해서 객체를 생성할 때,
+var n2 = new Number(5);
+var s2 = new String('hello world');
+var f2 = new Number(3.14);
+var b2 = new Number(true);
+var fn2 = new Function('a', 'b', 'return a + b;');
+// fn2(a, b){return a+b;}
+var a2 = new Array();
+var o2 = new Object();
+
+console.log(n2 + ":" + typeof(n2));
+console.log(f2 + ":" + typeof(f2));
+console.log(b2 + ":" + typeof(b2));
+console.log(s2 + ":" + typeof(s2));
+console.log(fn2 + ":" + typeof(fn2));
+console.log(a2 + ":" + typeof(a2));
+console.log(o2 + ":" + typeof(o2));
+
+
+// 내장타입의 객체는 확장이 불가능하다.
+console.log("------------------------------------");
+n.myVal = 20;
+console.log(n.myVal);
+
+// 오브젝트 타입의 객체는 확장이 가능하다.
+console.log("------------------------------------");
+n2.myVal = 20;
+console.log(n2.myVal);
+
+
+// 브라우저 내장 객체 console
+console.log("------------------------------------");
+console.log('-log-')
+console.warn('-warn-')
+console.error('-error-')
+console.info('-info-')
+
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+<!--  
+function mDown( obj ) {
+  obj.style.backgroundColor="#1ec5e5";
+  obj.innerHTML="버튼을 떼주세요.";
+}
+function mUp( obj ) {
+  obj.style.backgroundColor="#D94A38";
+  obj.innerHTML="클릭하세요!";
+} <div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:#D94A38;width:90px;height:20px;padding:40px;">클릭하세요!</div>
+ -->

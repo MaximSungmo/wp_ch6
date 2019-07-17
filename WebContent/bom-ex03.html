@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//Location 객체 
+var s='';
+for(var key in location){
+	s +=key + ':' + window[key] + '\n'
+}
+console.log(s);
+
+// location 객체 : 주소창
+// 예제 URL: http://localhost:8080/wp-ch6/dom-ex03.html?name=테스트&email=test@gmail.com
+// 속성 : href, host, hostname, port, path, hash, search
+		
+</script>
+<script>alert("reload!!")</script>
+</head>
+<body>
+<h1>location 객체 </h1>
+
+<button onclick='location=location;'>refresh1</button>
+
+<button onclick='location.href=location.href;'>refresh2</button>
+
+<button onclick='location.assign(location);'>refresh3</button>
+
+<button onclick='location.replace(location);'>refresh4</button>
+
+<!-- reload는 캐시를 모두 재갱신하며 나머지 refresh1~4까지는 캐쉬가 남아있다. -->
+<button onclick='location.reload();'>refresh5</button>
+
+</body>
+</html>

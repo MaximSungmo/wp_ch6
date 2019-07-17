@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+window.onload = function(){
+	var img = document.createElement('img');
+	
+	setTimeout(function(){
+		document.body.appendChild(img);
+		
+		//표준 속성은 문서객체로 셋팅이 가능하다. 
+		img.src ='111.PNG';
+		img.width = 200;
+		img.alt = '대체 이미지';
+		img.title= '이미지 말풍선'
+		
+		// 아래의 data-name은  표준 속성이 아니므로 셋팅이 불가능하다.
+		//img.data-name = '이미지입니다.'
+		
+		// 따라서 비표준 속성까지 설정하기 위해서 메소드 사용
+		img.setAttribute('src', '111.PNG');
+		img.setAttribute('width', '50');
+		
+	}, 2000);
+}
+
+</script>
+</head>
+<body>
+	<h1> 문서 속성 조작하기 </h1>
+</body>
+</html>

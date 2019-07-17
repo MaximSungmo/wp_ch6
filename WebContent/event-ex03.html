@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+/* DOM Level 0 : Basic Event model (고전적인 이벤트처리)*/
+
+// 처음에 변수들이 로딩될 때 변수에 들어갈 수 있도록 해줘야 DOM이 만들어짐 
+window.onload = function(){
+
+	var button1 = document.getElementById('button-1');
+	var button2 = document.getElementById('button-2');
+	
+//	button1.onclick = function(event){
+//		var counter = document.getElementById('counter-1'); //span 태그 가져옴
+//		var count = Number(counter.innerText); // 0을 가져오나 명시적으로 number 형변환
+//		counter.innerText = count+1; //증가된 값을 다시 innerText로 넣어줌 
+//	}
+	
+//	button2.onclick = function(event){
+//		var counter = document.getElementById('counter-2'); //span 태그 가져옴
+//		var count = Number(counter.innerText); // 0을 가져오나 명시적으로 number 형변환
+//		counter.innerText = count+1; //증가된 값을 다시 innerText로 넣어줌 	
+//	}
+	
+	// DOM Level 0 는 이벤트 핸들러 하나만 연결할 수 있는 단점이 있다. 
+//	button2.onclick = function(event){
+//		console.log('another handdler called')		
+//	}
+	
+	
+	button1.onclick = function(event){
+		// this : 현재 클릭된 event.targer이다.
+		// 이벤트가 일어난 HTMLElement 객체
+		var counter = document.getElementById(this.getAttribute('data-counterid')); //span 태그 가져옴
+		var count = Number(counter.innerText); // 0을 가져오나 명시적으로 number 형변환
+		counter.innerText = count+1; //증가된 값을 다시 innerText로 넣어줌 	
+	}
+}
+ 
+</script>
+</head>
+<body>
+	<!-- reference되어 id를 동작시킴. -->
+	<button id='button-1' data-counterid='counter-1'>button1</button>
+	<button id='button-2' data-counterid='counter-2'>button2</button>
+	<h1> counter1: <span id='counter-1'>0</span></h1>	
+	<h1> counter2: <span id='counter-2'>0</span></h1>
+	
+</body>
+</html>
+	<!-- 현재 버튼이 js에서 동일한 기능 2개를 각각 구현하게 되었다. 이를 해겨랗기 위한 data attribute를 써보자 -->

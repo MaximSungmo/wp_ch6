@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// 객체(type object)를 생성하는 방법1
+// new 키워드를 사용하는 방법
+var o1 = new Object();
+o1.name = '둘리';
+o1.age = '10';
+console.log(o1);
+
+//객체(type object)를 생성하는 방법2
+// literal 사용하기
+var o2 = {}; //오브젝트를 만드는 literal
+o2.name = '마이콜';
+o2.age = '102';
+console.log(o2);
+
+//객체(type object)를 생성하는 방법3
+//(J)ava(S)cript (O)bject (N)otation = JSON
+var o3 = {
+		'name' : '또치',
+		'age' : '12',
+}; 
+console.log(o3);
+
+
+//객체(type object)를 생성하는 방법4
+//커스텀 "생성 함수"를 만드는 방법
+var f = function(){
+	console.log('보통 일반 함수')
+};
+
+// 생성 함수의 이름은 일반 함수와는 다르게 변수명으로 구분될 수 있게끔 관례를 따른다. 
+var MyObject = function(name, age){
+	console.log('생성자 함수')
+	this.name = name;
+	this.age = age;
+};
+
+var o4 = new f();
+console.log(o4);
+var o5 = new MyObject('아저씨', 40);
+console.log(o5);
+
+
+
+MyObject.prototype.school= 'bit academy';
+MyObject.prototype.course= 'cafe24';
+
+console.log(MyObject);
+
+// o6 인스턴스에는 prototype으로 설정이 된 객체 내 변수에 대해서 따로 선언을  하지 않았으나 위에서 설정한 값으로 나타남
+// 이러한 작업이 되는 이유는 인스턴스객체에서 변수가 없다면 생성자의 proto타입에서 객체를 가져오기 때문이다.
+var o6 = new MyObject('길동', 20);
+console.log(o6);
+console.log(o6.school);
+console.log(o6.course);
+
+// 하지만 아래와 같이 school 변수를 변경하여 주면 proto type의 값이 변하는 게 아니라 o6에 해당하는 변수가 설정된다.
+o6.school = 'sds';
+console.log(o6.school);
+
+// o7의 값은 proto에서 설정된 값이 변하지 않았다는 것을 증명하는 내용이다.
+var o7 = new MyObject('길동', 20);
+console.log(o7);
+console.log(o7.school);
+console.log(o7.course);
+
+
+o5.info = function(){
+	console.log("비밀!");
+}
+o5.info();
+
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

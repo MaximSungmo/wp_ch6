@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+window.onload = function(){
+	// client 에서 입력값 검증하는 방법
+	var form = document.getElementById('form-login');
+	
+	// DOM Level 0 - 이벤트 기본 동작 막기(for validation)
+	// _를 사용해 잠시 사용불가처리 
+	form._onsubmit = function(event){
+		// 이메일 값 받아오기 
+		var email = document.getElementById('email').value;
+		console.log(email);
+		if(email == ''){
+			alert('이메일은 필수 입력 항목입니다.');
+			document.getElementById('email').focus();
+			return false;			
+		}
+		var password = document.getElementById('password').value;
+		console.log(password);
+		if(password == ''){
+			alert('비밀번호는 필수 입력 항목입니다.');
+			document.getElementById('password').focus();
+			return false;			
+		}
+		
+		return true;
+	};
+	
+	
+	// DOM Level 2 - 이벤트 기본 동작 막기(for validation)
+	form.addEventListener('submit', function(event){
+		event.preventDefault();
+		var email = document.getElementById('email').value;
+		console.log(email);
+		if(email == ''){
+			alert('이메일은 필수 입력 항목입니다.');
+			document.getElementById('email').focus();
+			return;	
+		}
+		var password = document.getElementById('password').value;
+		console.log(password);
+		if(password == ''){
+			alert('비밀번호는 필수 입력 항목입니다.');
+			document.getElementById('password').focus();
+			return;	
+		}
+		this.submit();
+	});
+	
+	// DOM Level 2 - 이벤트 기본 동작 막기(for ajax 통신)
+	form.addEventListener('submit', function(event){
+		event.preventDefault();
+		console.log('start log-in with ajax');
+	});
+	
+	// Achor에 적용하기(이유 : ajax 통신)
+	var button = document.getElementById('fetch-data');
+	button.addEventListener('click', function(event){
+		
+		// 앵커태그에 #을 넣더라도 링크를 누르면  맨 상단으로 이동하지 않도록 조치
+		event.preventDefault();
+		console.log('fetching start');
+	});
+}
+ 
+</script>
+</head>
+<body>
+	<form id='form-login' method='post' action='login'>
+		<label>이메일</label><br/>
+        <input type='text' name='email' id='email'/><br/>
+        <label>패스워드</label><br/>
+        <input type='text' name='password' id='password'/><br/>
+        <input type='submit' value='로그인'/><br/>
+	</form>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<!-- 앵커태그에 #을 넣더라도 링크를 누르면 페이지의 맨 상단으로 이동한다. 따라서 맨 상단으로 이동하지 않도록 조치를 취해야한다. -->
+	<a href='#' id='fetch-data'>다음 10개</a>
+	
+</body>
+</html>

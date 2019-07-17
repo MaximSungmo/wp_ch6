@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<script>
+
+var url = 'http://localhost:8080/mysite3?n=테"스"트&e=test@gmail.com';
+
+// escape 
+// Deprecated 되었으므로 사용하지 마세요. 
+var url2 = escape(url); 
+console.log(url2);
+// http://localhost:8080/mysite3?n=테"스"트&e=test@gmail.com
+// http%3A//localhost%3A8080/mysite3%3Fn%3D%uD14C%22%uC2A4%22%uD2B8%26e%3Dtest@gmail.com
+
+//encodeURI
+// 전체URL에서  파라미터 부분만 엔코딩을 함 
+var url3 = encodeURI(url);
+console.log(url3); 
+// http://localhost:8080/mysite3?n=%ED%85%8C%22%EC%8A%A4%22%ED%8A%B8&e=test@gmail.com
+
+		
+setTimeout(function(){
+	document.write(url3);
+}, 2000);		
+// url3 위치 이동 
+//location.href=url3
+
+// encodeURIComponent
+// 전체 url을 모두 encode 시킴
+var url4 = encodeURIComponent(url);
+console.log(url4); 
+//http%3A%2F%2Flocalhost%3A8080%2Fmysite3%3Fn%3D%ED%85%8C%22%EC%8A%A4%22%ED%8A%B8%26e%3Dtest%40gmail.com
+
+var url = 'http://localhost:8080/mysite3';
+//var qs = 'n=테"스"트&e=test@gmail.com';
+var qs = '?' +
+'n=' + encodeURIComponent('테"스"트')
+'&e=' + encodeURIComponent('test@gmail.com'); 
+var url5 = url + qs;
+console.log(url5);
+//http://localhost:8080/mysite3?n%3D%ED%85%8C%22%EC%8A%A4%22%ED%8A%B8%26e%3Dtest%40gmail.com
+
+		
+
+var params = {
+		name:'테스트',
+		e:'test@naver.com',
+}
+
+var toQueryString = function(o){
+
+	   var qs = [];
+	   
+	   for(key in o){
+	      qs.push(key + "=" + encodeURIComponent(o[key]));
+	   }
+	   return "?" + qs.join('&');
+	   console.log(qs);
+	   
+	}
+
+console.log(toQueryString(params)) // ?name=%ED%85%8C%EC%8A%A4%ED%8A%B8&e=test%40naver.com
+		
+		
+var url6 = url+toQueryString({
+	name:'테스트',
+	e:'test@naver.com',
+})
+console.log(url6); // http://localhost:8080/mysite3?name=%ED%85%8C%EC%8A%A4%ED%8A%B8&e=test%40naver.com
+
+
+</script>
+
+
+</head>
+<body>
+<h1>Escape String</h1>
+</body>
+</html>

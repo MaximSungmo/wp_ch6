@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+// css 선택자(selector)로 가져오기 html 5부터 지원하였음 
+window.onload = function(){
+	var header1 = document.querySelector('#header1');
+	var header2 = document.querySelectorAll('.header');
+
+	
+	setTimeout(function(){
+		header1.innerText = 'header-1 변경'
+		header2[1].innerText= 'h'
+	}, 2000);
+	
+}
+
+</script>
+</head>
+<body>
+	<h1> 문서 객체 조작하기 </h1>
+	<h1 id='header1' class='header'>header-1</h1>
+	<h1 class='header'>header-2</h1>
+	
+</body>
+</html>

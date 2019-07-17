@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+// cross browsing을 지원하는 이벤트핸들러 만들기
+var registerEventHandler = function(element, eventName, handler){
+	// IE8에서 실행 
+	// element가 null이 맞는 지 확인하기 && IE8밑 버전이 맞는 지 && 모두 통과되었다면 IE8밑 버전에 실행코드 진행  
+	element && element.attachEvent && element.attachEvent('on'+evnetName, handler)
+	
+	// Chrome 에서 실행 
+	element && element.addEventListener && element.addEventListener(eventName, handler)
+}
+
+/* DOM Level 2 : Standard Event model (addEventListener) */
+
+
+window.onload = function(){
+	var header = document.getElementById('header');
+	//MultiEvent Listener 연결가능
+	// onserver pattern
+	header.addEventListener('click', function(){
+		console.log("click 1");
+	})
+	header.addEventListener('click', function(){
+		console.log("click 2");
+	})
+	header.addEventListener('click', function(){
+		console.log("click 3");
+	})
+	
+	registerEventHandler(header, 'click', function(){
+		console.log("click 4");
+	})
+}
+ 
+</script>
+</head>
+<body>
+
+	<h1 id='header'> header</h1>
+	
+</body>
+</html>
